@@ -1,0 +1,22 @@
+
+e
+java:S2629>"$Invoke method(s) only conditionally.(¨¢˜ñüÿÿÿÿJ$0d5ba6ac-f0ee-420c-8c67-a54f15863046
+€
+java:S2629Ÿ"7Use the built-in formatting to construct this argument.(†âúªÿÿÿÿÿ8ã‡ıä1J$084db39c-5bbb-46e5-a7a3-daa71fbe6ffe
+{
+java:S2629 "7Use the built-in formatting to construct this argument.(É—ı8ã‡ıä1J$f8b3d27f-337d-4a73-980f-9ef97f2a7ad6
+{
+java:S2629¡"7Use the built-in formatting to construct this argument.(Ù¡©«8ã‡ıä1J$c1e050f8-1f0b-46ae-87b5-7c120d722ec6
+h
+java:S2629º"$Invoke method(s) only conditionally.(ı’§Ã8ä‡ıä1J$30f74204-02b9-4e9f-97e7-cacaa297acca
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÉìÊìùÿÿÿÿJ$3d438349-b6ab-4d8e-8055-dd1f216458c4
+Š
+java:S3457Ÿ"AFormat specifiers should be used instead of string concatenation.(†âúªÿÿÿÿÿ8Ò‡ıä1J$4dc03758-1bec-4a04-9342-88e7df89dc6d
+…
+java:S3457 "AFormat specifiers should be used instead of string concatenation.(É—ı8Ó‡ıä1J$af9ecc3b-ba66-40d5-9a6e-47bf057771d0
+…
+java:S3457¡"AFormat specifiers should be used instead of string concatenation.(Ù¡©«8Ó‡ıä1J$864a7e67-5199-40e0-9a16-f229bec9c99d
+u
+java:S1068'"4Remove this unused "statusRepository" private field.(›î™›ûÿÿÿÿJ$fd0c5154-e227-4e0e-9857-6a476c232c1c
+o
+java:S1144j"3Remove this unused private "parseOrDefault" method.(óÙÔàJ$9ea0881e-622f-469c-92f0-82f4840debdc

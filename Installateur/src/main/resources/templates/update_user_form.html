@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container">
+
+    <h1>Update User</h1>
+    <form th:action="@{/users/update/{userId}(userId=${user.id})}" method="post" th:object="${user}">
+        <input type="hidden" th:field="*{id}" />
+
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" th:field="*{firstName}" />
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" th:field="*{lastName}" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" />
+        </div>
+
+        <button type="submit">Update User</button>
+    </form>
+</div>
+</body>
+</html>

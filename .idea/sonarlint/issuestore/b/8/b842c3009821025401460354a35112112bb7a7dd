@@ -1,0 +1,64 @@
+
+
+java:S1192U"MDefine a constant instead of duplicating this literal "errorMessage" 3 times.(Ÿ«‚¡8úÿ´Áç1J$d80429c9-2ee0-41b6-86d4-a6484d2bd747
+’
+java:S1192Y"ODefine a constant instead of duplicating this literal "successMessage" 3 times.(¸Ô¤—8±ìÓÁç1J$92ba0d70-c415-4b12-bb3c-72fe4419d476
+—
+java:S1192„"SDefine a constant instead of duplicating this literal "redirect:/register" 3 times.(ò™«8²ìÓÁç1J$cb99dec9-3a4f-4c00-99a6-503f7f6ec8e9
+¤
+java:S26299"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(úÖ»«úÿÿÿÿ8ÃìÓÁç1J$e1a0f2b5-e59e-4c29-a195-c7c4d5dd40c5
+¤
+java:S2629B"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(½Ë×æùÿÿÿÿ8ÃìÓÁç1J$d81c84e5-a547-49e5-8e62-854139090d34
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰ÿÄ–şÿÿÿÿJ$2a6ef0aa-f70a-4896-86bc-8f174a20789e
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¯íÓÁç1J$e19a4596-d1b8-464f-9943-4e4c484a59c5
+…
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8°íÓÁç1J$6b6fd924-03d8-4313-abd9-f987e3a2b6ed
+…
+java:S6813$"BRemove this field injection and use constructor injection instead.(êæÄŞ8±íÓÁç1J$c230800a-7f41-4b24-a562-673e9018437f
+…
+java:S6813'"BRemove this field injection and use constructor injection instead.(êæÄŞ8±íÓÁç1J$b9b64ff7-ca5d-47c8-9d31-1cf128b6787c
+
+java:S3416 "9Update this logger to use "RegistrationController.class".(—­Š›ùÿÿÿÿ8ìß³Áç1J$dee70c78-f63c-4880-b27c-dc4e8e9ff49e
+˜
+java:S62017"VReplace this instanceof check and cast with 'instanceof CustomUserDetails userDetails'(•×ï{8ÚîÓÁç1J$bf219ec3-56a3-4fe2-beda-00a1547ad463
+‰
+java:S34579"AFormat specifiers should be used instead of string concatenation.(úÖ»«úÿÿÿÿ8ûîÓÁç1J$a864264f-6f4e-4e47-bc7a-ac9ef1d11fd4
+ƒ
+java:S3457<"AFormat specifiers should be used instead of string concatenation.(¶Òx8şîÓÁç1J$e538c624-b8d5-4d52-9bb9-153f7a491757
+o
+java:S1602=",Remove useless curly braces around statement(…‹¹’8ïÓÁç1J$a1fe0c54-77be-435a-b82c-c08bbd49f038
+„
+java:S3457>"AFormat specifiers should be used instead of string concatenation.(¹¦ê‘8„µÁç1J$2a47f7d0-fc50-4f99-b9cb-c9b747865e3b
+‰
+java:S3457B"AFormat specifiers should be used instead of string concatenation.(½Ë×æùÿÿÿÿ8ƒïÓÁç1J$461118f4-890a-45c2-924d-fa7fd61ba427
+„
+java:S3457D"AFormat specifiers should be used instead of string concatenation.(…ôà¸8†ïÓÁç1J$fe34a88f-f73d-4bd4-b245-4c7963f4c2f2
+‹
+java:S4488M"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ú­Ç†8‹ïÓÁç1J$4cdb47e5-2fb6-48e6-b33a-965f895f98a2
+
+java:S4488_"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ïşÒÊûÿÿÿÿ8‘ïÓÁç1J$d6e07417-78bc-4ee2-b5d4-c5b2d856120f
+x
+java:S1905c"5Remove this unnecessary cast to "HttpServletRequest".(ÑÒÏ«8—ïÓÁç1J$b494d3d9-3956-40df-bf29-f73304fb31d5
+y
+java:S1905c"6Remove this unnecessary cast to "HttpServletResponse".(ÑÒÏ«8˜ïÓÁç1J$3dd8f1a3-1bcf-4530-adf2-8f33d2f7d768
+|
+java:S1854Š"8Remove this useless assignment to local variable "user".(›…¦8ïÓÁç1J$3ff4fa3f-e1b7-44fd-91ec-1b783736a124
+„
+java:S3457y"AFormat specifiers should be used instead of string concatenation.(ÊÔéĞ8¢ïÓÁç1J$229386b3-938a-4bbe-9539-a049cfa998bd
+„
+java:S3457z"AFormat specifiers should be used instead of string concatenation.(£²Ô8£ïÓÁç1J$2e3abe8e-94d9-44de-bb60-fb9a3fd3542c
+m
+java:S1481Š")Remove this unused "user" local variable.(›…¦8ªïÓÁç1J$8fb100ca-b5ac-4a7c-b11a-90eb60a28964
+Š
+java:S3457¢"AFormat specifiers should be used instead of string concatenation.(šÌ†Óıÿÿÿÿ8±ïÓÁç1J$83f583ad-f234-423c-ba98-bce125e89899
+|
+java:S1854Æ"8Remove this useless assignment to local variable "user".(›…¦8³ïÓÁç1J$4e6a0b66-405f-463e-a87c-3aedd8ca20f9
+…
+java:S3457¶"AFormat specifiers should be used instead of string concatenation.(ÊÔéĞ8·ïÓÁç1J$6b603757-3a4c-48d1-b8ef-caaca1ad2148
+…
+java:S3457·"AFormat specifiers should be used instead of string concatenation.(£²Ô8¹ïÓÁç1J$138f8af9-e98d-4e4e-91a8-1ba1723d2f78
+m
+java:S1481Æ")Remove this unused "user" local variable.(›…¦8¾ïÓÁç1J$b91c7539-ee75-4c07-b69a-700c0e887e33
+z
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ÿóÀç1J$3d736283-5070-4aec-91ac-e6e79a00f8ec

@@ -1,0 +1,6 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œæ¦ñJ$4195e110-8077-4fa4-a2fa-2689e980f893
+¦
+java:S6833""eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿJ$a33343fd-b630-4f08-bd6c-224a25442280
+½
+java:S1186'"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹«º•J$9ade66fb-504b-437e-8cb5-ec77a547e251

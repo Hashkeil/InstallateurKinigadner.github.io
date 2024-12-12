@@ -1,0 +1,12 @@
+
+¡
+java:S11924"YDefine a constant instead of duplicating this literal "redirect:/customers/list" 4 times.(’®ËŒøÿÿÿÿ8˜Ğçêä1J$49975383-04de-4451-95e0-d70dda4782c6
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¼ï‰J$0cd716ac-fccc-4db7-a661-9080cf6e127a
+­
+java:S6833"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿ8¿Ğçêä1J$4f52e1b2-62ab-43de-b93a-71aa2e6966de
+
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ø°ÁÒøÿÿÿÿ8ÈĞçêä1J$36059238-b5f0-4150-a44e-feebef705303
+•
+java:S6204+"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ÑĞçêä1J$13732901-fab9-4bc9-8734-153c5b5d8c63
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8î±ÇÁç1J$dd25fef3-b695-4094-805f-cfb596b076da

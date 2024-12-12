@@ -1,0 +1,50 @@
+
+•
+java:S1192O"MDefine a constant instead of duplicating this literal "invoice_view" 4 times.(‡§¯øÿÿÿÿ8Ú±ìÙç1J$36b8c057-ce51-4897-bd6e-a05ad17d92a2
+‘
+java:S1192Z"IDefine a constant instead of duplicating this literal "userName" 3 times.(Ãµöİüÿÿÿÿ8Û±ìÙç1J$159a5e29-9ef8-478e-9e4d-69494d75e1f0
+
+java:S1192L"HDefine a constant instead of duplicating this literal "invoice" 5 times.(×ıù—øÿÿÿÿ8İ±ìÙç1J$bcc5573c-7bb7-4807-8b05-6b415a7546ff
+z
+java:S2629B"7Use the built-in formatting to construct this argument.(ÔËú¹8ä±ìÙç1J$267ffdf2-9b5b-4cc4-929e-1c9b9ab0cc6b
+
+java:S2629F"7Use the built-in formatting to construct this argument.(•ñÃ•üÿÿÿÿ8å±ìÙç1J$3f2ad919-f426-4349-83bf-471bf6016dd9
+g
+java:S2629"$Invoke method(s) only conditionally.(Œø›*8è±ìÙç1J$250e1b87-3584-4595-9dea-097e2fb901b8
+{
+java:S2629 "7Use the built-in formatting to construct this argument.(ü„ò±8é±ìÙç1J$b522ac6e-e5d9-4450-b53e-f160370020ea
+{
+java:S2629·"7Use the built-in formatting to construct this argument.(“Åä¼8é±ìÙç1J$6ed04c7f-3fea-43b9-879e-03e184c38edb
+z
+java:S2629»"7Use the built-in formatting to construct this argument.(äµ€8ê±ìÙç1J$3e9bc262-107a-4fc4-aeca-e4531c84bbc8
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÉìÊìùÿÿÿÿJ$de739e9d-81a8-4cad-884d-52a0e174742f
+­
+java:S6833%"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿ8Ò²ìÙç1J$28ba88b4-8213-47a0-8466-a5d34e815556
+…
+java:S6813."BRemove this field injection and use constructor injection instead.(êæÄŞ8Õ²ìÙç1J$d3897501-d0f9-44a0-838c-2d0bb1238f8b
+„
+java:S3457B"AFormat specifiers should be used instead of string concatenation.(ÔËú¹8é²ìÙç1J$dafde867-1059-42f6-b665-029fc2f52a47
+‰
+java:S3457F"AFormat specifiers should be used instead of string concatenation.(•ñÃ•üÿÿÿÿ8ğ²ìÙç1J$4e72960c-c7f3-4e52-91da-8235fd7cc137
+…
+java:S3457 "AFormat specifiers should be used instead of string concatenation.(ü„ò±8°³ìÙç1J$4c2fb66a-2e8e-45ce-8fab-25c25a8ef9f7
+…
+java:S3457·"AFormat specifiers should be used instead of string concatenation.(“Åä¼8À³ìÙç1J$e1481b6a-00aa-45f6-8b25-c523a97d8cc2
+„
+java:S3457»"AFormat specifiers should be used instead of string concatenation.(äµ€8Æ³ìÙç1J$fc232c7e-6a5c-4f09-919f-84d7afbc2fce
+’
+java:S1128"JRemove this unused import 'at.DiplomProjekt.Installateur.account.Account'.(»Ãœşÿÿÿÿ8Ï³ìÙç1J$99d5f9b2-42cd-459c-a9c4-66b3c30c4686
+‰
+java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿ8Ğ³ìÙç1J$624615b9-72d2-4152-81ae-b6b799acbb79
+‡
+java:S1128"?Remove this unused import 'org.springframework.http.MediaType'.(úŸİ¯şÿÿÿÿ8Ñ³ìÙç1J$99005b08-9fa3-4f43-a4c6-c790878a2ade
+Œ
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8Ñ³ìÙç1J$282c2b70-1972-4908-af15-60f6c12713bd
+ƒ
+java:S1128"@Remove this unused import 'com.itextpdf.html2pdf.HtmlConverter'.(’®­ô8Ò³ìÙç1J$1a3502ca-9bdc-48e8-afe6-f8a5da3e8923
+|
+java:S1128":Remove this unused import 'java.io.ByteArrayOutputStream'.(Î‡È8Ó³ìÙç1J$9584300f-e251-441d-b641-c2170609ece2
+
+java:S1128"9Remove this unused import 'java.io.ByteArrayInputStream'.(Ëôæ±ûÿÿÿÿ8Ô³ìÙç1J$c36bf9e6-b725-465e-afaa-9577a64788fa
+‚
+java:S1144Æ">Remove this unused private "prepareInvoiceHtmlContent" method.(¸Ÿé8Ø³ìÙç1J$1577b00e-1550-4e01-bccc-7b488b1b8956

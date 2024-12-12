@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installateur Kinigadner Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <style>
+        body {
+            background-color: #f6f5f7;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary {
+            background-color: #FF4B2B;
+            border-color: #FF4B2B;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF694D;
+            border-color: #FF694D;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* Adjusting z-index for dropdown menus */
+        .dropdown-menu {
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<div th:replace="~{_navbar.html}"></div>
+
+<body>
+<div class="container mt-4">
+
+<div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-users card-body-icon"></i>
+                    <h5 class="card-title">Customers</h5>
+                    <p class="card-text">Total Customers: 200</p>
+                    <a href="/customers/list" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-file-invoice-dollar card-body-icon"></i>
+                    <h5 class="card-title">Invoices</h5>
+                    <p class="card-text">Total Invoices: 100</p>
+                    <a href="/invoices/getAllInvoices" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-envelope card-body-icon"></i>
+                    <h5 class="card-title">New Emails</h5>
+                    <p class="card-text">Unread Emails: 10</p>
+                    <p class="card-text">Total Emails: 50</p>
+                    <a href="/emails" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="fas fa-cogs card-body-icon"></i>
+                <h5 class="card-title">Products </h5>
+                <p class="card-text">Total Products: 20</p>
+                <a href="/products/list" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="fas fa-wrench card-body-icon"></i>
+                <h5 class="card-title">Plumbing Services</h5>
+                <p class="card-text">Total Services: 15</p>
+                <a href="/plumbing/services" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-users card-body-icon"></i>
+                    <h5 class="card-title">Employees</h5>
+                    <p class="card-text">Total Employees: 5</p>
+                    <a href="/users/list" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

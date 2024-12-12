@@ -1,0 +1,7 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÉìÊìùÿÿÿÿJ$df377321-a1fc-4933-8b8c-8ad9ee3d1023
+ƒ
+java:S1128
+"GRemove this unused import 'org.hibernate.annotations.GenericGenerator'.(ƒİŸÉJ$ab0d642f-ed77-4c29-8912-c157b1b5521d
+|
+java:S1128"@Remove this unused import 'org.hibernate.annotations.Parameter'.(”Œ€åJ$5a3530d4-e4fc-4258-a27e-c9bdd8694030

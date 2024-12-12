@@ -1,0 +1,34 @@
+
+—
+java:S1192Á"SDefine a constant instead of duplicating this literal "redirect:/settings" 3 times.(ÂßÕÚ8ßÚ×úä1J$c37b5bf3-a4a7-436f-abf5-4378c74cdda2
+±
+java:S1192ê"hDefine a constant instead of duplicating this literal "redirect:/users/list?error=UserNotFound" 3 times.(é¿¾ßüÿÿÿÿ8Ô·ùúä1J$8d2bc46d-c1dd-410e-b953-2b53b5942cf6
+
+java:S1192`"MDefine a constant instead of duplicating this literal "errorMessage" 4 times.(Ÿ«‚¡8àÚ×úä1J$64a1b4ff-3d65-4d10-abd1-b08f47440e59
+’
+java:S1192d"ODefine a constant instead of duplicating this literal "successMessage" 4 times.(¸Ô¤—8àÚ×úä1J$419f6514-1c15-4746-9fec-581082c676c4
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ªÕ¥ù8åÚ×úä1J$3a44ba83-5db6-4464-b8ff-d6ebcf62e1a2
+˜
+java:S6201C"VReplace this instanceof check and cast with 'instanceof CustomUserDetails userDetails'(•×ï{8‘Û×úä1J$859599be-2a67-4a9d-a84e-b2df17df38d8
+o
+java:S1602I",Remove useless curly braces around statement(…‹¹’8–Û×úä1J$b5aea88e-05d2-42eb-a074-c7c14f0dd0e8
+‹
+java:S4488X"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ú­Ç†8šÛ×úä1J$4ae6a349-cafc-4a49-885a-203b70b890ff
+
+java:S4488j"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ïşÒÊûÿÿÿÿ8Û×úä1J$fd8bb83e-6cd1-44d8-98ab-8629cd480b40
+x
+java:S1905n"5Remove this unnecessary cast to "HttpServletRequest".(ÑÒÏ«8 Û×úä1J$3afa4874-cf11-413d-bf74-02df463f2003
+y
+java:S1905n"6Remove this unnecessary cast to "HttpServletResponse".(ÑÒÏ«8¡Û×úä1J$aed3d5de-e332-4ab2-9694-ae4021b4a2b2
+|
+java:S1854‘"8Remove this useless assignment to local variable "user".(›…¦8¤Û×úä1J$091b8e23-9265-4c52-9024-ed3e8c116c51
+m
+java:S1481‘")Remove this unused "user" local variable.(›…¦8¯Û×úä1J$44757299-2d59-495a-89e4-7b3deceec19c
+|
+java:S1854Æ"8Remove this useless assignment to local variable "user".(›…¦8¶Û×úä1J$1cd12453-57e8-42c9-bcbc-40967dfa94a4
+m
+java:S1481Æ")Remove this unused "user" local variable.(›…¦8½Û×úä1J$958482ca-c49f-4327-b211-7cb70492dc4c
+
+java:S1128"[Remove this unused import 'at.DiplomProjekt.Installateur.product.ProductNotFoundException'.(ÏËÕê8‚”ëúä1J$f3c3df58-a805-4513-bce2-edd6388ad0d1
+Œ
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8‚”ëúä1J$0eeb5d25-1fb3-44e5-b77f-ea6e65199f9b

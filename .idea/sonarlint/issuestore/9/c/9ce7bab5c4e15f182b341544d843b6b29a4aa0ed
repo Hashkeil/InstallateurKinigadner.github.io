@@ -1,0 +1,17 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã®€ÅùÿÿÿÿJ$6c37966e-6553-4be0-a0fd-8f1e50198aa7
+i
+java:S1068
+"-Remove this unused "invoiceId" private field.(úşœÀJ$b3dd8537-1589-4ba5-84c6-545c2219715f
+k
+java:S1068"/Remove this unused "invoiceName" private field.(³‚×”J$54b0f89a-81e5-4634-adfe-c7b853c4b5b4
+m
+java:S1068"1Remove this unused "invoiceNumber" private field.(”­J$e454f4a0-6dde-4e07-8904-1aae0531c025
+m
+java:S1068"1Remove this unused "invoiceStatus" private field.(É©‚éJ$c7ac864e-199b-44fe-9d3d-18cda3e6eb28
+j
+java:S1068")Remove this unused "notes" private field.(üÕ”ÑúÿÿÿÿJ$43ff7f50-66d1-4164-81b3-2574de329e6e
+n
+java:S1068"-Remove this unused "createdAt" private field.(µ±œÎÿÿÿÿÿJ$84ced8ac-f838-45b1-9d3b-d9b812d325af
+h
+java:S1068"-Remove this unused "updatedAt" private field.(©åíOJ$d23123fe-6dff-47d1-bb12-d344448559ab

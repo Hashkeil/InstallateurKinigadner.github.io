@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customers List</title>
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+        .btn-action {
+            margin-right: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .btn-action:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-danger:hover {
+            background-color: #bd2130;
+            border-color: #bd2130;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+        .table {
+            background-color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tbody tr {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 576px) {
+            .btn-action {
+                margin-top: 5px;
+                margin-right: 0;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group input {
+                margin-bottom: 5px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+
+<div class="container mt-5" id="customerTable">
+    <h2 class="mb-4">Customers List</h2>
+
+
+
+    <label for="search">Search:</label>
+    <div class="input-group mb-3">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Enter ID, First Name, or Last Name">
+        <div class="input-group-append">
+            <button type="button" id="searchButton" class="btn btn-primary btn-action" onclick="filterTable()">Search</button>
+            <button type="button" id="resetButton" class="btn btn-secondary btn-action" onclick="resetSearch()">Reset</button>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered">
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <a href="/invoices/create" class="btn btn-primary btn-action btn-block">
+                    <i class="fas fa-plus"></i> Add New Invoice
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/products/list" class="btn btn-primary btn-action btn-block">
+                    <i class="fas fa-box"></i> Products
+                </a>
+            </div>
+        </div>
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Zip</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer, iterStat : ${customers}">
+            <th scope="row" th:text="${iterStat.count}"></th>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.phone}"></td>
+            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.city}"></td>
+            <td th:text="${customer.zip}"></td>
+            <td th:text="${customer.companyName}"> </td>
+            <td>
+                <div class="btn-group">
+                    <a th:href="@{'/customers/update/' + ${customer.id}}" class="btn btn-warning btn-action">Update</a>
+                    <form th:action="@{/customers/delete/{id}(id=${customer.id})}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a th:href="@{/invoices/create(customerId=${customer.id})}" class="btn btn-success btn-action">Create Invoice</a>
+                </div>
+            </td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button onclick="scrollToTop()" class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+
+
+<script>
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.querySelector("#customerTable table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            var match = false;
+
+            for (var j = 1; j < tr[i].getElementsByTagName("td").length - 1; j++) {
+                td = tr[i].getElementsByTagName("td")[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        match = true;
+                        break;
+                    }
+                }
+            }
+
+            if (match) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+
+    function resetSearch() {
+        document.getElementById("search").value = "";
+        filterTable();
+    }
+
+</script>
+</body>
+</html>

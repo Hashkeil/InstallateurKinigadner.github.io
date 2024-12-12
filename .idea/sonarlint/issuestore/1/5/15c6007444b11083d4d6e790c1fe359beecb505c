@@ -1,0 +1,6 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¼ï‰J$d77a7fef-a8ae-4191-a0eb-ef190bd9741a
+‰
+java:S1128"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âüÿÿÿÿ8à–êÁç1J$89f8e74b-7bb5-425c-a83f-672cfb652f24
+
+java:S1128"ERemove this unused import 'org.springframework.data.domain.Pageable'.(‡ë‚Öıÿÿÿÿ8á–êÁç1J$42db952c-8177-462b-bbb5-22814fa96d5f

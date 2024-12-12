@@ -1,0 +1,12 @@
+
+
+java:S2629X"7Use the built-in formatting to construct this argument.(ºÌòÜşÿÿÿÿ8–Ìªä1J$819c9170-8714-4102-b598-c9982760fd73
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢øúİ8™Ìªä1J$69241171-538c-44c2-b0eb-53ebc60071ec
+„
+java:S34575"AFormat specifiers should be used instead of string concatenation.(á®¼‹8¯Ìªä1J$84f418fa-b794-4934-9d02-db35e06cc28e
+
+java:S6201S"VReplace this instanceof check and cast with 'instanceof CustomUserDetails userDetails'(Èûöğùÿÿÿÿ8µÌªä1J$fdcead96-09e4-46f5-be24-484dc9e039e8
+‰
+java:S3457X"AFormat specifiers should be used instead of string concatenation.(ºÌòÜşÿÿÿÿ8µÌªä1J$55a18639-fc8a-419a-bc53-3e1148c61034
+
+java:S1128"LRemove this unused import 'at.DiplomProjekt.Installateur.customer.Customer'.(ûíÌõ8¶ö£Àä1J$3902b67b-ac8e-43b2-a1ae-4a0a87c0bd66

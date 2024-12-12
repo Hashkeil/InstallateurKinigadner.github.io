@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees List</title>
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn {
+            margin-right: 5px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container">
+
+
+
+    <h1>User List</h1>
+    <label for="search">Search:</label>
+    <div class="input-group mb-3">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Enter ID, First Name, or Last Name">
+        <div class="input-group-append">
+            <button type="button" id="searchButton" class="btn btn-primary btn-action" onclick="filterTable()">Search</button>
+            <button type="button" id="resetButton" class="btn btn-secondary btn-action" onclick="resetSearch()">Reset</button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a href="/customers/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Customer
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/invoices/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Invoice
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/products/list" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-box"></i> Products
+            </a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.firstName}">First Name</td>
+            <td th:text="${user.lastName}">Last Name</td>
+            <td th:text="${user.email}">Email</td>
+            <td th:text="${user.enabled}">Enabled</td>
+
+
+            <td>
+
+                <form th:action="@{/users/update/{id}(id=${user.id})}" method="get">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+                <form th:action="@{/users/delete/{userId}(userId=${user.id})}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+
+            </td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button onclick="scrollToTop()" class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<script>
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("userTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            var match = false;
+
+            for (var j = 1; j < tr[i].getElementsByTagName("td").length - 1; j++) {
+                td = tr[i].getElementsByTagName("td")[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        match = true;
+                        break;
+                    }
+                }
+            }
+
+            if (match) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+    function resetSearch() {
+        document.getElementById("search").value = "";
+        // Reset the table to show all rows
+        var table = document.getElementById("userTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+
+
+</script>
+</body>
+</html>
+

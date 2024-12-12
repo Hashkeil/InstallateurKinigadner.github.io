@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:jsp="http://java.sun.com/JSP/Page">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Invoice</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/typeahead.css}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        #selected-customer-info .card {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .typeahead, .tt-query, .tt-hint {
+            width: 100%;
+        }
+
+        .typeahead {
+            background-color: #FFFFFF;
+        }
+
+        .typeahead:focus {
+            border: 2px solid #0097CF;
+        }
+
+        .tt-suggestion p {
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        select option {
+            background-color: #fff;
+            color: #333;
+            padding: 8px;
+        }
+
+        .thin-border {
+            border: 1px solid #ced4da;
+            margin: 0 15px 0 30px;
+            padding: 1px 1px 1px 12px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<div th:replace="~{_navbar.html}"></div>
+
+
+<div class="container">
+
+
+   <div class="invoice-create-form mx-auto">
+       <div class="card">
+           <div class="card-header">Create Invoice</div>
+           <div class="card-body">
+                   <form th:action="@{/invoices}" th:object="${invoiceItems}" method="post" id="invoice-form">
+
+                   <input type="hidden" name="customerId" id="customer-id-input" value="" />
+                   <div class="row">
+                       <div class="col-md">
+                           <div>
+
+                               <address style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+                                   <strong style="font-size: 1.2em; color: #000;">Installateur Kinigadner </strong><br>
+                                   <span style="font-size: 1em; font-weight: bold;">GAS - Sanitär - Heizungstechnik</span><br>
+                                   <span style="font-size: 1em;">Christian Kinigadner</span><br>
+                                   <span style="font-size: 1em;">Pfenninggeldgasse 1/1b</span><br>
+                                   <span style="font-size: 1em;">1160 Wien</span><br>
+                                   <a href="mailto:kinigadner@hotmail.com" style="text-decoration: none; color: #555; display: block; margin-bottom: 5px;">kinigadner@hotmail.com</a>
+                                   <a href="tel:06766273309" style="text-decoration: none; color: #555; display: block; margin-bottom: 5px;">Tel.: 0676 627 33 09</a>
+                                   <a href="tel:06767011404" style="text-decoration: none; color: #555; display: block; margin-bottom: 5px;">Tel.: 0676 701 14 04</a>
+                                   <a href="tel:06763820514" style="font-weight: bold; text-decoration: none; display: block; margin-bottom: 5px; color: #ee0505;">Notdienst: 0676 38 20 514</a>
+                               </address>
+                           </div>
+
+
+                           <div>
+
+                                <div class="form-group">
+                                    <label>Find existing customer: </label>
+                                    <input type="text" class="form-control typeahead" autocomplete="off" spellcheck="false" placeholder="name@example.com">
+                                    <select id="customer" name="customerId" class="form-control">
+                                        <option th:each="customer : ${customers_list}" th:value="${customer.id}" th:text="${customer.firstName + ' ' + customer.lastName + ' ' + customer.address + ' ' + customer.city + ' ' + customer.zip + ' ' + customer.email + ' ' + customer.phone}">Customer Name</option>
+                                    </select>
+
+                                </div>
+
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#customer-form-modal">
+                                    + Add Customer
+                                </button>
+
+                                <div id="bill-to"></div>
+
+                            </div>
+                        </div>
+
+
+                       <div class="col-md text-md-right">
+                           <h3>INVOICE</h3>
+                           <div class="col-md text-md-right">
+                               <label for="invoice-number">Invoice Number:</label>
+                               <input type="text" id="invoice-number" name="invoiceNumber" class="form-control" readonly>
+                           </div>
+                       </div>
+
+
+
+                        <!--------->
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <hr>
+                        </div>
+                    </div>
+
+
+                    <div class="row saved-line-item">
+                        <div class="col-md-7">
+                            <div class="pl-1 font-weight-bold">
+                                Product or Service
+                            </div>
+                        </div>
+                        <div class="col-md-1 font-weight-bold">
+                            <div>
+                                Qty
+                            </div>
+                        </div>
+                        <div class="col-md-2 font-weight-bold">
+                            <div>
+                                Unit Price
+                            </div>
+                        </div>
+                        <div class="col-md-2 font-weight-bold">
+                            <div>
+                                Tax
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <hr>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                   <div id="line-items-container">
+                       <div th:each="item, itemStat : ${invoiceItems}" class="row line-item-form-row">
+                           <div class="col-md">
+                               <div class="form-row mb-2">
+                                   <div class="col-7">
+                                       <input type="text" th:field="${item.productName}" class="form-control product-name" autocomplete="off" spellcheck="false" placeholder="Product or service">
+                                   </div>
+                                   <div class="col-1">
+                                       <input type="text" th:field="${item.quantity}" class="form-control item-quantity-input" placeholder="Qty">
+                                   </div>
+                                   <div class="col-2">
+                                       <div class="input-group">
+                                           <div class="input-group-prepend">
+                                               <div class="input-group-text">€</div>
+                                           </div>
+                                           <input type="text" th:field="${item.unitPrice}" class="form-control item-unit-price-input" placeholder="Unit price">
+                                       </div>
+                                   </div>
+                                   <div class="col-2">
+                                       <div class="input-group">
+                                           <input type="text" th:field="${item.taxRate}" class="form-control tax-rate-input" placeholder="Tax Rate">
+                                           <div class="input-group-append">
+                                               <div class="input-group-text">%</div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <textarea th:field="${item.productDescription}" class="form-control" placeholder="Provide a brief description of your product or service"></textarea>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+
+                   <div class="row"   >
+                        <div class="col-12">
+                            <div class="btn-group mt-2" role="group" aria-label="Row Button Bar">
+                                <button type="button" class="btn btn-success add-line-item-btn">+ Add</button>
+                                <button type="button" class="btn btn-danger remove-line-item-btn">- Remove</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <div class="form-group">
+                                <label for="invoice-note-input">Note to customer</label>
+                                <textarea name="invoiceNote" class="form-control" id="invoice-note-input" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-3 offset-3">
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <div class="row">
+                                        <div class="col-md font-weight-bold">SUBTOTAL</div>
+                                        <div class="col-md thin-border" id="invoice-subtotal"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <div class="row">
+                                        <div class="col-md font-weight-bold">TAX</div>
+                                        <div class="col-md thin-border" id="invoice-tax"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <div class="row">
+                                        <div class="col-md font-weight-bold">TOTAL</div>
+                                        <div class="col-md thin-border" id="invoice-total"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <button type="submit">Submit Invoice</button>
+
+                  </form>
+                  <div id="invoicePreview" class="mt-4"></div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+<div class="modal fade" id="customer-form-modal" tabindex="-1" role="dialog" aria-labelledby="customer-form-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form th:action="@{/customers}" method="post" id="customer-form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customer-form-label">Add New Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div th:replace="~{_customer_form.html}"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="customer-save-btn">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typeahead.js@0.11.1/dist/typeahead.bundle.min.js"></script>
+<script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let lineItemIndex = 1;
+
+        const addItemButton = document.querySelector('.add-line-item-btn');
+        const removeItemButton = document.querySelector('.remove-line-item-btn');
+        const lineItemsContainer = document.getElementById('line-items-container');
+
+        addItemButton.addEventListener('click', function () {
+            const newLineItem = document.querySelector('.line-item-form-row').cloneNode(true);
+            lineItemsContainer.appendChild(newLineItem);
+            updateLineItemAttributes(newLineItem, lineItemIndex);
+            attachEventListenersToLineItem(newLineItem);
+            lineItemIndex++;
+            recalculateInvoiceTotals();
+        });
+
+        removeItemButton.addEventListener('click', function () {
+            const lineItems = document.querySelectorAll('.line-item-form-row');
+            if (lineItems.length > 1) {
+                lineItems[lineItems.length - 1].remove();
+                lineItemIndex--;
+                recalculateInvoiceTotals();
+            }
+        });
+
+        function updateLineItemAttributes(lineItem, index) {
+            lineItem.querySelector('.remove-line-item-btn').id = 'remove-item-row-btn-' + index;
+            lineItem.querySelector('.item-quantity-input').name = 'invoiceItems[' + index + '].itemQuantity';
+            lineItem.querySelector('.item-unit-price-input').name = 'invoiceItems[' + index + '].unitPrice';
+            lineItem.querySelector('.tax-rate-input').name = 'invoiceItems[' + index + '].taxRate';
+        }
+
+        function attachEventListenersToLineItem(lineItem) {
+            const qtyInput = lineItem.querySelector('.item-quantity-input');
+            const priceInput = lineItem.querySelector('.item-unit-price-input');
+            const taxRateInput = lineItem.querySelector('.tax-rate-input');
+
+            qtyInput.addEventListener('input', recalculateInvoiceTotals);
+            priceInput.addEventListener('input', recalculateInvoiceTotals);
+            taxRateInput.addEventListener('input', recalculateInvoiceTotals);
+        }
+
+        function recalculateInvoiceTotals() {
+            let subtotal = 0;
+            let taxTotal = 0;
+            const lineItems = document.querySelectorAll('.line-item-form-row');
+
+            lineItems.forEach(function (lineItem) {
+                const qty = parseFloat(lineItem.querySelector('.item-quantity-input').value) || 0;
+                const price = parseFloat(lineItem.querySelector('.item-unit-price-input').value) || 0;
+                const taxRate = parseFloat(lineItem.querySelector('.tax-rate-input').value) || 0;
+
+                const lineTotal = qty * price;
+                const lineTax = lineTotal * (taxRate / 100);
+
+                subtotal += lineTotal;
+                taxTotal += lineTax;
+            });
+
+            const total = subtotal + taxTotal;
+
+            document.getElementById('invoice-subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('invoice-tax').textContent = taxTotal.toFixed(2);
+            document.getElementById('invoice-total').textContent = total.toFixed(2);
+        }
+
+        function generateInvoiceNumber() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = ('0' + (now.getMonth() + 1)).slice(-2);
+            const day = ('0' + now.getDate()).slice(-2);
+            const hours = ('0' + now.getHours()).slice(-2);
+            const minutes = ('0' + now.getMinutes()).slice(-2);
+            const seconds = ('0' + now.getSeconds()).slice(-2);
+            const milliseconds = ('00' + now.getMilliseconds()).slice(-3);
+
+            return year + month + day + hours + minutes + seconds + milliseconds;
+        }
+
+        const invoiceNumber = generateInvoiceNumber();
+        document.getElementById('invoice-number').value = invoiceNumber;
+
+        const invoiceNumberInput = document.getElementById('invoice-number');
+        const invoiceNumberValue = invoiceNumberInput.value;
+        const invoiceDetailsLink = document.getElementById('invoice-details-link');
+        invoiceDetailsLink.href = '/invoice-details?invoiceNumber=' + invoiceNumberValue;
+
+        attachEventListenersToLineItem(document.querySelector('.line-item-form-row'));
+    });
+</script>
+
+
+</body>
+</html>
+
+

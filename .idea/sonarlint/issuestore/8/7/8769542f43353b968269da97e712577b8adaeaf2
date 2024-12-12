@@ -1,0 +1,27 @@
+
+„
+java:S1192,"HDefine a constant instead of duplicating this literal "product" 4 times.(ŠªĞ¹J$c1cdd13b-e7fb-4af1-9a86-4550807f4c50
+¶
+java:S1192U"nDefine a constant instead of duplicating this literal "redirect:/products/list?error=ProductNotFound" 3 times.(ªé şÿÿÿÿ8‘êÀéä1J$c4e672c5-381b-4d02-bc30-9d5c6e45c0ba
+š
+java:S1192="XDefine a constant instead of duplicating this literal "redirect:/products/list" 3 times.(šØ+8óÑ³éä1J$102e9a77-8eb0-441c-af34-cdd814de3a0f
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢øúİJ$e31022b7-2cce-48a4-9d98-ad72e978ed97
+¦
+java:S6833"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿJ$eafa8633-3ea2-47ea-90e9-581b6ae76628
+Ú
+java:S68068"Attribute names must begin with a letter (a-z, A-Z), underscore (_), or dollar sign ($) and can be followed by letters, digits, underscores, or dollar signs.(½µâJ$e8a58245-05a1-4236-8e53-4312a21eea99
+g
+java:S1602D",Remove useless curly braces around statement(ŠŠ­[J$af49c9c0-3e31-42aa-831c-5eb4ef356996
+
+java:S1128"LRemove this unused import 'at.DiplomProjekt.Installateur.customer.Customer'.(ûíÌõ8ìá´éä1J$1945c532-3c45-410b-8573-62a29e10e10c
+
+java:S1128"URemove this unused import 'at.DiplomProjekt.Installateur.security.CustomUserDetails'.(›É‡‡ıÿÿÿÿ8ìá´éä1J$bdd84ff7-4d74-4e7e-be41-5066675a752d
+
+java:S1128	"MRemove this unused import 'org.springframework.security.core.Authentication'.(ñıÓ“8íá´éä1J$1bec2bc0-9885-48b3-bddf-30d4c10fab2f
+Ÿ
+java:S1128
+"\Remove this unused import 'org.springframework.security.core.context.SecurityContextHolder'.(ŒÄæë8íá´éä1J$7f13dc99-36ce-4fc5-8204-1ccd5338a56c
+t
+java:S1068"8Remove this unused "authenticationFacade" private field.(©êºJ$8f40b8ae-7e00-4338-8f25-74ca31081b7e
+t
+java:S1068"3Remove this unused "productService1" private field.(ªá˜‚üÿÿÿÿJ$b89a0562-55d8-4e2d-b31f-c1d6d5d0f267

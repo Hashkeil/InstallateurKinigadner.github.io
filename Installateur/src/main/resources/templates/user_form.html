@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/CSS/bootstrap.min.css" />
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+
+<div class="container">
+
+</div>
+    <div class="register-form mx-auto">
+        <div class="">
+            <h2>Create a User</h2>
+        </div>
+        <div class="alert alert-danger" role="alert" id="errorMessage"></div>
+        <div class="alert alert-success" role="alert" id="successMessage"></div>
+
+        <form action="/admin/users" id="userForm" method="post">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" name="firstName" class="form-control" id="first-name" placeholder="First Name"/>
+                <div class="invalid-feedback" id="firstNameError"></div>
+                <small id="first-name-help" class="form-text text-muted">20 chars max</small>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" name="lastName" class="form-control" id="last-name" placeholder="Last Name"/>
+                <div class="invalid-feedback" id="lastNameError"></div>
+                <small id="last-name-help" class="form-text text-muted">20 chars max</small>
+            </div>
+            <div class="form-group">
+                <label for="email-address">Email</label>
+                <input type="text" name="email" class="form-control" id="email-address" placeholder="Email Address"/>
+                <div class="invalid-feedback" id="emailError"></div>
+                <small id="email-address-help" class="form-text text-muted">50 chars max</small>
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Password</label>
+                <input type="password" name="firstPassword" class="form-control" id="phone-number" placeholder="password"/>
+                <div class="invalid-feedback" id="phoneError"></div>
+                <small id="phone-help" class="form-text text-muted">format xxx-xxx-xxxx</small>
+            </div>
+            <div class="form-group">
+                <label for="company">Confirm Password</label>
+                <input type="password" name="confirmPassword" class="form-control" id="company" placeholder="confirm password"/>
+                <div class="invalid-feedback" id="companyError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="validateForm()">Save</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    function validateForm() {
+
+    }
+</script>
+
+</body>
+</html>

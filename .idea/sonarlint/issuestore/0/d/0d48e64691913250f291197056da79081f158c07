@@ -1,0 +1,16 @@
+
+
+java:S1192+"FDefine a constant instead of duplicating this literal "ADMIN" 3 times.(§´šóøÿÿÿÿ8¾ÿâùä1J$7184803b-c6a4-4b05-9a0e-437ed12f5c6c
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ªÕ¥ù8Ãÿâùä1J$c30b3f0e-5186-4884-9738-c8a415cbec64
+„
+java:S1854+"<Remove this useless assignment to local variable "userRole".(§´šóøÿÿÿÿ8¿€ãùä1J$4f1114b7-3d84-4508-85f5-b6b04a1afeee
+„
+java:S1854,"<Remove this useless assignment to local variable "userRole".(¾Á›øÿÿÿÿ8¿€ãùä1J$6c1c3f37-1ed0-4ad9-818c-437035c01639
+u
+java:S1481+"-Remove this unused "userRole" local variable.(§´šóøÿÿÿÿ8Ã€ãùä1J$a869e646-d534-4d1b-ac64-97076a067e1b
+‹
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8İ€ãùä1J$5bd0a24c-c061-4ee4-a5ed-5401dd75f4ac
+¥
+java:S1128	"]Remove this unused import 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'.(åÅÚ…ûÿÿÿÿ8İ€ãùä1J$5565a674-e905-4e24-b146-49e61f1a7d71
+w
+java:S1068"4Remove this unused "authorityService" private field.(ˆ²»¥8ß€ãùä1J$f78b5ad8-7048-44f1-a5a2-21db455d8d5d

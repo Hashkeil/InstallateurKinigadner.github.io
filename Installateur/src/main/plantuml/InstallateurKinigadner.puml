@@ -1,0 +1,105 @@
+@startuml
+  class Invoice {
+  + id : Long
+  + invoiceNum : int
+  + name : String
+  + invoiceItems : InvoiceItem
+  + invoiceStatus : InvoiceStatus
+  + notes : String
+  + subtotal : BigDecimal
+  + tax : BigDecimal
+  + total : BigDecimal
+  + user : User
+  + customer : customer
+  + createdAt : LocalDateTime
+  + updatedAt : LocalDateTime
+
+  }
+
+
+class Product {
+ + id : Long
+ + name : String
+ + description : String
+ + quantity : int
+ + sku : String
+ + isService : boolean
+ + createdAt : LocalDateTime
+ + updatedAt : LocalDateTime
+ + user : User
+ + invoiceItem : InvoiceItem
+
+}
+
+class Customer {
+ + id : Long
+ + firstName : String
+ + lastName : String
+ + email : String
+ + phone : String
+ + companyName : String
+ + address : String
+ + city : String
+ + zip : String
+ + createdAt : LocalDateTime
+ + updatedAt : LocalDateTime
+ - List<Invoice> : Invoice
+
+}
+
+
+
+  class User {
+ + id : Long
+ + email : String
+ + password : String
+ + firstName : String
+ + lastName : String
+ + enabled : boolean
+ + createdAt : LocalDateTime
+ + updatedAt : LocalDateTime
+ + roles : Role
+ - List<Product> : Product
+ - List<Invoice> : Invoice
+ + account : Account
+  }
+
+  class Account {
+ + id : Long
+ + company : String
+ + address : String
+ + city : String
+ + state : String
+ + zip : String
+ + phone : String
+ + email : String
+ + website : String
+ + active : boolean
+ + createdAt : LocalDateTime
+ + updatedAt : LocalDateTime
+  }
+
+  class InvoiceItem {
+  + id : Long
+  + quantity : int
+  + unitPrice : BigDecimal
+  + lineSubtotal : BigDecimal
+  + taxRate : BigDecimal
+  + taxAmount : BigDecimal
+  + amount : BigDecimal
+  + product : Product
+  + invoice : Invoice
+
+
+   }
+
+
+
+Invoice "1" -- "0..*" InvoiceItem : Contains
+Product "1" -- "0..*" InvoiceItem : Included in
+Invoice "1" -- "1" Customer : Belongs to
+User "1" -- "0..*" Product : Creates
+User "1" -- "0..*" Invoice : Creates
+User "1" -- "1" Account : Manages
+
+@enduml

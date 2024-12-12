@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            margin-top: 20px;
+        }
+
+        .horizontal-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Adjust the form width as needed */
+            margin: auto;
+        }
+
+        .form-control {
+            border-radius: 20px;
+        }
+
+        .btn-primary {
+            border-radius: 20px;
+            padding: 10px 30px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            text-align: right; /* Align the text of labels to the right */
+        }
+
+        .alert {
+            border-radius: 20px;
+        }
+
+        .form-group.row {
+            align-items: center; /* Center align items vertically */
+            margin-bottom: 10px; /* Add some space between form groups */
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container">
+
+
+    <div class="horizontal-form">
+        <div class="text-center mb-4">
+            <h2>Create Customer</h2>
+        </div>
+
+
+        <div th:each="errMsg : ${errorMessages}" th:if="${not #lists.isEmpty(errorMessages)}" class="alert alert-danger" role="alert" th:text="${errMsg}"></div>
+        <div th:if="${not #strings.isEmpty(successMessage)}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>
+
+
+        <form action="/customers" method="post" th:object="${customer}">
+            <!-- First Name Field -->
+            <div class="form-group row">
+                <label for="first-name" class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{firstName}" class="form-control" id="first-name" placeholder="First Name">
+                </div>
+            </div>
+
+            <!-- Last Name Field -->
+            <div class="form-group row">
+                <label for="last-name" class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{lastName}" class="form-control" id="last-name" placeholder="Last Name">
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group row">
+                <label for="email-address" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" th:field="*{email}" class="form-control" id="email-address" placeholder="Email Address">
+                </div>
+            </div>
+
+            <!-- Phone Field -->
+            <div class="form-group row">
+                <label for="phone-number" class="col-sm-3 col-form-label">Phone</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{phone}" class="form-control" id="phone-number" placeholder="Phone Number">
+                </div>
+            </div>
+
+            <!-- Address Field -->
+            <div class="form-group row">
+                <label for="address" class="col-sm-3 col-form-label">Address</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="Street Address">
+                </div>
+            </div>
+
+            <!-- City Field -->
+            <div class="form-group row">
+                <label for="city" class="col-sm-3 col-form-label">City</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="City">
+                </div>
+            </div>
+
+            <!-- ZIP Code Field -->
+            <div class="form-group row">
+                <label for="zip" class="col-sm-3 col-form-label">ZIP</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{zip}" class="form-control" id="zip" placeholder="ZIP Code">
+                </div>
+            </div>
+
+            <!-- Company Name Field -->
+            <div class="form-group row">
+                <label for="company" class="col-sm-3 col-form-label">Company</label>
+                <div class="col-sm-9">
+                    <input type="text" th:field="*{companyName}" class="form-control" id="company" placeholder="Company Name">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>

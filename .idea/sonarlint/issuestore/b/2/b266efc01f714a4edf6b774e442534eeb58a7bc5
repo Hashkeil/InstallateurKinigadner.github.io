@@ -1,0 +1,6 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢øúİJ$fa30235c-1b6d-4583-b7a9-b44cff59b790
+
+java:S1128"ORemove this unused import 'org.springframework.data.repository.CrudRepository'.(Îê¶¬üÿÿÿÿJ$0a20f284-9565-4b0f-a343-78677244b6dd
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8Ñ¶Âç1

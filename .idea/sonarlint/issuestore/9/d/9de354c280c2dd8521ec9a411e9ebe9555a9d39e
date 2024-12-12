@@ -1,0 +1,12 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ªÕ¥ùJ$630cc723-5475-4bce-b46f-37189b04fa0e
+}	java:S107"BConstructor has 11 parameters, which is greater than 7 authorized.(ÖœÃîJ$e2c76509-db5c-45cd-8db0-34e3327baa46
+’
+java:S1128"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥J$731b1e1e-fb90-4920-90c3-cb309ddc30b5
+l
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±ÄøÿÿÿÿJ$7c7a80c8-20ac-4904-81b7-16fe60b0e6f0
+Z
+java:S1128
+"Remove this duplicated import.(½Á±ÿJ$ed52a1ae-21f2-4301-bb70-9ba467994f1d
+_
+java:S1128"Remove this duplicated import.(¹ÉĞšùÿÿÿÿJ$74af1fda-d6c7-41e3-9d4c-dbb57627c8e8

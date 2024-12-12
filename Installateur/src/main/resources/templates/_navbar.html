@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installateur Kinigadner</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Open Sans', sans-serif;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      margin: 0;
+    }
+
+    .navbar {
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    .navbar-brand img {
+      max-height: 40px;
+    }
+
+    .nav-item.active .nav-link {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .navbar-nav li {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+    }
+
+    .nav-item:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      color: #495057;
+      transition: background-color 0.3s ease;
+      padding: 8px 16px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #dae0e5;
+    }
+
+    .nav-link .fas,
+    .dropdown-item .fas {
+      margin-right: 5px;
+      transition: all 0.3s ease-in-out;
+      color: #007bff;
+    }
+
+    .nav-link:hover .fas {
+      transform: rotate(360deg);
+    }
+
+    .navbar-nav li {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-nav li:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 992px) {
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/dashboard">Installateur Kinigadner</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link"  href="/dashboard" ><i class="fas fa-home"></i> Dashboard</a>
+      </li>
+      <!-- Customers Dropdown with Icon -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="customers_list.html" id="customersDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-users"></i> Customers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="customersDropdown">
+          <a class="dropdown-item" href="/customers/list"><i class="fas fa-list"></i> View Customers</a>
+          <a class="dropdown-item" href="/customers/create"><i class="fas fa-user-plus"></i> Create Customer</a>
+        </div>
+      </li>
+      <!-- Products Dropdown with Icon -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="product_list.html" id="productsDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-box-open"></i> Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+          <a class="dropdown-item" href="/products/list"><i class="fas fa-list"></i> View Products</a>
+          <a class="dropdown-item" href="/products/new"><i class="fas fa-plus"></i> Create Product</a>
+        </div>
+      </li>
+
+      <!-- Billing Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="invoice_list.html" id="billingDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-file-invoice-dollar"></i> Billing
+        </a>
+        <div class="dropdown-menu" aria-labelledby="billingDropdown">
+          <a class="dropdown-item" href="/invoices/create"><i class="fas fa-file-invoice"></i> Create Invoice</a>
+          <a class="dropdown-item" href="/invoices/getAllInvoices"><i class="fas fa-list"></i> Invoices</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-money-bill-alt"></i> Payments</a>
+        </div>
+      </li>
+      <!-- Users Dropdown with Icon -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="user_list.html" id="usersDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-users"></i> Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="usersDropdown">
+          <a class="dropdown-item" href="/users/list"><i class="fas fa-list"></i> View Users</a>
+          <a class="dropdown-item" href="/users/register"><i class="fas fa-user-plus"></i> Add New User</a>
+        </div>
+      </li>
+
+
+      <!-- Manage Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="manageDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cogs"></i> Manage
+        </a>
+        <div class="dropdown-menu" aria-labelledby="manageDropdown">
+          <a class="dropdown-item" href="/user/settings"><i class="fas fa-user-cog"></i> User Settings</a>
+          <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

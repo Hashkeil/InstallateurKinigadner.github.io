@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice List</title>
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container mt-3">
+    <h2>Invoice List</h2>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a href="/customers/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Customer
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/invoices/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Invoice
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/products/list" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-box"></i> Products
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Invoice Number</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th> <!-- New column for actions -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="invoice : ${list}">
+            <td th:text="${invoice.invoiceNumber}"></td>
+            <td th:text="${invoice.customerName}"></td>
+            <td th:text="${invoice.invoiceCreatedAt}"></td>
+            <td th:text="${invoice.invoiceStatus}"></td>
+            <td>
+                <form th:action="@{/invoices/delete/{id}(id=${invoice.invoiceId})}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button onclick="scrollToTop()" class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

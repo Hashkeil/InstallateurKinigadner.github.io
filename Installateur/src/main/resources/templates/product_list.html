@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+        .container {
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .alert-info a {
+            color: #0056b3;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .alert-info a:hover {
+            color: #007bff;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-group:hover {
+            transform: scale(1.03);
+        }
+
+        .add-button {
+            margin-bottom: 20px;
+        }
+
+        table {
+            background-color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tbody tr {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .action-buttons button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .action-buttons button i {
+            margin-right: 5px;
+        }
+
+        .action-buttons button.btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .action-buttons button.btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .action-buttons button.btn-primary:hover, .action-buttons button.btn-danger:hover {
+            background-color: #0056b3;
+        }
+
+
+        @media (max-width: 768px) {
+            .add-button {
+                margin-bottom: 10px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons button {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container">
+    <h2>Products <span th:text="${#lists.size(products)}">0</span></h2>
+    <div th:if="${products.isEmpty()}" class="alert alert-info">
+        No products to display. <a href="/products/new">Add products here</a>.
+    </div>
+
+    <label for="search">Search:</label>
+    <div class="input-group">
+        <input type="text" id="search" name="search" class="form-control" placeholder="product name">
+        <div class="input-group-append">
+            <button type="button" id="searchButton" class="btn btn-primary btn-action" onclick="filterTable()">Search</button>
+            <button type="button" id="resetButton" class="btn btn-secondary btn-action" onclick="resetSearch()">Reset</button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a href="/customers/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Customer
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/invoices/create" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-plus"></i> Add New Invoice
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/invoices/getAllInvoices" class="btn btn-primary btn-action btn-block">
+                <i class="fas fa-list"></i> Invoices
+            </a>
+        </div>
+    </div>
+
+    <table class="table" id="productTable">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price per Unit</th>
+            <th>SKU</th>
+            <th>Is Service?</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.sku}"></td>
+            <td>
+                <input type="checkbox" th:checked="${product.isService}" disabled>
+            </td>
+            <td class="action-buttons">
+                <form th:action="@{'/products/update/' + ${product.id}}" method="post" onsubmit="return confirm('Are you sure you want to update/delete this product?');" class="update-form">
+                    <input type="number" th:name="id" th:value="${product.id}" />
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Product Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" th:value="${product.name}" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea id="description" name="description" class="form-control" required th:text="${product.description}"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" th:value="${product.quantity}" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price per Unit:</label>
+                        <input type="number" id="price" name="price" class="form-control" th:value="${product.price}" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="sku" class="form-label">SKU:</label>
+                        <input type="text" id="sku" name="sku" class="form-control" th:value="${product.sku}" required />
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" id="isService" name="isService" class="form-check-input" th:checked="${product.isService}" />
+                        <label for="isService" class="form-check-label">Is Service?</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+
+                </form>
+                <form th:action="@{/products/delete/{id}(id=${product.id})}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button onclick="scrollToTop()" class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i> <!-- FontAwesome icon for an arrow pointing up -->
+</button>
+<script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<script>
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("productTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function resetSearch() {
+        document.getElementById("search").value = "";
+        var table = document.getElementById("productTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+</script>
+<script type="text/javascript" src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script></body>
+</body>
+
+</html>

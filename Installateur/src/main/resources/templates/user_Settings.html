@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{_navbar.html}"></div>
+
+<div class="container">
+    <h1>User Settings</h1>
+    <form th:action="@{/users/settings}" method="post" th:object="${userFormModel}">
+        <!-- User Information -->
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" th:field="*{firstName}" />
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" th:field="*{lastName}" />
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" />
+        </div>
+        <div>
+            <label for="firstPassword">New Password:</label>
+            <input type="password" id="firstPassword" name="firstPassword" th:field="*{firstPassword}" />
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}" />
+        </div>
+
+
+        <div>
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" th:field="*{accountInfo.company}" />
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" th:field="*{accountInfo.address}" />
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" th:field="*{accountInfo.city}" />
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" th:field="*{accountInfo.state}" />
+        </div>
+        <div>
+            <label for="zip">Zip:</label>
+            <input type="text" id="zip" name="zip" th:field="*{accountInfo.zip}" />
+        </div>
+        <div>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" th:field="*{accountInfo.phone}" />
+        </div>
+        <div>
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" th:field="*{accountInfo.role}" />
+        </div>
+        <div>
+            <label for="website">Website:</label>
+            <input type="text" id="website" name="website" th:field="*{accountInfo.website}" />
+        </div>
+
+
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>

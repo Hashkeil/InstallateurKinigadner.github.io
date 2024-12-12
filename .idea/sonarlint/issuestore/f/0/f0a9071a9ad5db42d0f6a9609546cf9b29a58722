@@ -1,0 +1,12 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†³˜ÄJ$88d68f72-2875-4519-8d01-f470e8e18c7b
+z
+java:S1874@"9Remove this use of "authorizeRequests"; it is deprecated.(©ËÅÂúÿÿÿÿJ$be597a83-9d46-4c17-a3a7-a31e8c074084
+ƒ
+java:S1128"BRemove this unused import 'org.springframework.http.CacheControl'.(´ùÚÛşÿÿÿÿJ$cb0505ae-7647-49ab-8588-3fa61b11f181
+°
+java:S1128	"oRemove this unused import 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity'.(ŸÜÑıÿÿÿÿJ$ee080ea4-390f-4fef-a558-e62f040d9e6d
+
+java:S1128"]Remove this unused import 'org.springframework.web.servlet.resource.VersionResourceResolver'.(á¨û˜ıÿÿÿÿJ$23b85c52-78c9-4c99-8376-ce9ec8cabc11
+p
+java:S1128"/Remove this unused import 'java.time.Duration'.(ëá¯‰üÿÿÿÿJ$f8996ebc-8134-4957-b2a5-c3001c7a535e

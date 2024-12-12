@@ -1,0 +1,8 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ªΥ¥ωJ$f0d224d8-6fb5-4d89-9c4d-ec6e4101ba05
+w
+java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(πωηψωÿÿÿÿ8κο±κ1
+S
+java:S1128"1Remove this unused import 'java.util.Collection'.(ΉΙΠωÿÿÿÿ8κο±κ1
+T
+java:S1068"7Remove this unused "privilegeRepository" private field.(ªΨΤΨ8νο±κ1
